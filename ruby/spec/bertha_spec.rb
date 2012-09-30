@@ -6,7 +6,7 @@ describe Bertha do
   let(:speed) { 9600 }
   let(:serial_port) { mock SerialPort }
 
-  before(:each) do
+  before :each  do
     SerialPort.stub!(:new).and_return(serial_port)
     serial_port.stub! :close
   end
@@ -63,6 +63,18 @@ describe Bertha do
       serial_port.should_receive :close
       bertha = Bertha.new port, speed
       bertha.close
+    end
+
+  end
+
+  context 'when connected' do
+
+    subject { Bertha.new port }
+
+    it 'returns the Bertha version' do
+      serial_port.should_receive(:puts).with('VERSION')
+      serial_port.should_receive(:gets).and_return('1.0.0')
+      subject.version.should == '1.0.0'
     end
 
   end
