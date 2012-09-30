@@ -8,6 +8,8 @@ describe Bertha do
 
   before :each  do
     SerialPort.stub!(:new).and_return(serial_port)
+    serial_port.stub! :read_timeout=
+    serial_port.stub! :read
     serial_port.stub! :close
   end
 
@@ -73,7 +75,7 @@ describe Bertha do
 
     it 'returns the Bertha version' do
       serial_port.should_receive(:puts).with('VERSION')
-      serial_port.should_receive(:gets).and_return('1.0.0')
+      serial_port.should_receive(:gets).and_return("1.0.0\r\n")
       subject.version.should == '1.0.0'
     end
 

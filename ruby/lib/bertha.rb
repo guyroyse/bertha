@@ -4,6 +4,8 @@ class Bertha
 
   def initialize port, speed = 9600
     @serial = SerialPort.new port, speed, 8, 1
+    @serial.read_timeout = 200
+    @serial.read
   end
 
   def close
@@ -18,7 +20,7 @@ class Bertha
 
   def version
     @serial.puts 'VERSION'
-    @serial.gets
+    @serial.gets.chomp
   end
 
 end
