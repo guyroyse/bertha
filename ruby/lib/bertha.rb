@@ -19,7 +19,7 @@ class Bertha
   end
 
   def version
-    @serial.puts 'VERSION'
+    @serial.puts 'version'
     @serial.gets.chomp
   end
 

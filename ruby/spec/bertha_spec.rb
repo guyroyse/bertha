@@ -74,9 +74,9 @@ describe Bertha do
     subject { Bertha.new port }
 
     it 'returns the Bertha version' do
-      serial_port.should_receive(:puts).with('VERSION')
-      serial_port.should_receive(:gets).and_return("1.0.0\r\n")
-      subject.version.should == '1.0.0'
+      serial_port.should_receive(:puts).with('version')
+      serial_port.should_receive(:gets).and_return("v1.0.0\r\n")
+      subject.version.should == 'v1.0.0'
     end
 
   end
