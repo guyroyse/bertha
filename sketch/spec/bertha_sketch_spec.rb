@@ -23,11 +23,27 @@ describe 'Bertha Sketch' do
   end
 
   it 'returns ERROR for an unknown command' do
-    send("BAD_COMMAND").should == 'ERROR'
+    send("bad_command").should == 'ERR: unknown command'
   end
 
   it 'returns correct version number' do
-    send("VERSION").should == '1.0.0'
+    send("version").should == 'v1.0.0'
+  end
+
+  context 'writing to a pin' do
+
+    before :each do
+      send("pinMode 13 OUTPUT").should == 'OK: pin 13 set to OUTPUT'
+    end
+
+    it 'turns a PIN on' do
+      send("digitalWrite 13 1").should == 'OK: pin 13 set to 1'
+    end
+
+    it 'turns a PIN off' do
+      send("digitalWrite 13 0").should == 'OK: pin 13 set to 0'
+    end
+
   end
 
 end
