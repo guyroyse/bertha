@@ -73,10 +73,18 @@ describe Bertha do
 
     subject { Bertha.new port }
 
+    after :each do
+      subject.close
+    end
+
     it 'returns the Bertha version' do
       serial_port.should_receive(:puts).with('version')
       serial_port.should_receive(:gets).and_return("v1.0.0\r\n")
       subject.version.should == 'v1.0.0'
+    end
+
+    it 'returns a pin for a number' do
+      subject.pin(1).should be_an_instance_of(Bertha::Pin)
     end
 
   end

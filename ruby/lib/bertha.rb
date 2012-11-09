@@ -23,4 +23,23 @@ class Bertha
     @serial.gets.chomp
   end
 
+  def pin number
+    Bertha::Pin.new @serial, number
+  end
+
+  class Pin
+
+    def initialize serial, pin
+      @serial = serial
+      @pin = pin
+    end
+
+    def mode= mode
+      @serial.puts "pinMode #{@pin} #{mode.to_s.upcase}"
+      @serial.gets
+    end
+
+  end
+
 end
+
