@@ -11,23 +11,23 @@ void VersionCommand::executeInternal(Buffer* response) {
 }
 
 PinModeCommand::PinModeCommand(Buffer request) {
-  pin = request.nextInt();
-  mode = PinMode(request.nextToken());
+  pin.setPin(request.nextInt());
+  pin.setMode(PinMode(request.nextToken()));
 }
 
 void PinModeCommand::executeInternal(Buffer* response) {
-  pinMode(pin, mode.getMode());
-  response->append("OK: pin ")->append(pin)->append(" set to ")->append(mode.toString());
+  pinMode(pin.getPin(), pin.getMode().getMode());
+  response->append("OK: pin ")->append(pin.getPin())->append(" set to ")->append(pin.getMode().toString());
 }
 
 DigitalWriteCommand::DigitalWriteCommand(Buffer request) {
-  pin = request.nextInt();
-  value = request.nextInt();
+  pin.setPin(request.nextInt());
+  pin.setValue(request.nextInt());
 }
 
 void DigitalWriteCommand::executeInternal(Buffer* response) {
-  digitalWrite(pin, value);
-  response->append("OK: pin ")->append(pin)->append(" set to ")->append(value);
+  digitalWrite(pin.getPin(), pin.getValue());
+  response->append("OK: pin ")->append(pin.getPin())->append(" set to ")->append(pin.getValue());
 }
 
 void ErrorCommand::executeInternal(Buffer* response) {
