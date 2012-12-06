@@ -3,10 +3,7 @@ require 'serialport'
 describe 'Bertha Sketch' do
 
   let(:port) { '/dev/cu.usbmodemfa131' }
-
-  let :serial do
-    SerialPort.new port, 9600, 8, 1
-  end
+  let(:serial) { SerialPort.new port, 9600, 8, 1 }
 
   before :each do
     serial.read_timeout = 200
@@ -17,31 +14,42 @@ describe 'Bertha Sketch' do
     serial.close
   end
 
-  def send request
-    serial.puts request
-    serial.gets.chomp
-  end
-
   it 'returns ERROR for an unknown command' do
-    send("bad_command").should == 'ERR: unknown command'
+    read_write("bad_command").should == 'ERR: unknown command'
   end
 
   it 'returns correct version number' do
-    send("version").should == 'v1.0.0'
+    read_write("version").should == 'v1.0.0'
+  end
+
+  context 'setting pin mode' do
+
+    it 'sets pin mode to OUTPUT' do
+      read_write("pinMode 13 OUTPUT").should == 'OK: pin 13 set to OUTPUT'
+    end
+
+    it 'sets pin mode to INPUT' do
+      read_write("pinMode 13 INPUT").should == 'OK: pin 13 set to INPUT'
+    end
+
+    it 'sets pin mode to PULLUP' do
+      read_write("pinMode 13 PULLUP").should == 'OK: pin 13 set to PULLUP'
+    end
+
   end
 
   context 'writing to a pin' do
 
     before :each do
-      send("pinMode 13 OUTPUT").should == 'OK: pin 13 set to OUTPUT'
+      read_write("pinMode 13 OUTPUT").should == 'OK: pin 13 set to OUTPUT'
     end
 
     it 'turns a PIN on' do
-      send("digitalWrite 13 1").should == 'OK: pin 13 set to 1'
+      read_write("digitalWrite 13 1").should == 'OK: pin 13 set to 1'
     end
 
     it 'turns a PIN off' do
-      send("digitalWrite 13 0").should == 'OK: pin 13 set to 0'
+      read_write("digitalWrite 13 0").should == 'OK: pin 13 set to 0'
     end
 
   end
