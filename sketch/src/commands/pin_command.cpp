@@ -1,14 +1,13 @@
 #include "pin_command.h"
 
 #include "../bertha_buffer.h"
-#include "../board/pin.h"
-#include "../board/pins.h"
+#include "../board/board.h"
 
 PinCommand::PinCommand(BerthaBuffer request) {
   _pin = request.nextInt();
 }
 
 Pin* PinCommand::getPin() {
-  Pins* pins = Pins::getInstance();
-  return pins->getPin(_pin);
+  Board* board = Board::getInstance();
+  return board->getPin(_pin);
 };

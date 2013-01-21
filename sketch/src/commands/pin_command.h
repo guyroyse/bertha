@@ -3,7 +3,7 @@
 
 #include "command.h"
 #include "../bertha_buffer.h"
-#include "../board/pin.h"
+#include "../board/board.h"
 
 class PinCommand : public Command {
  

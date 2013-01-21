@@ -1,23 +1,23 @@
-#include "pins.h"
+#include "board.h"
 
-Pins* Pins::_instance = 0;
+Board* Board::_instance = 0;
 
-Pins::Pins() {
+Board::Board() {
   for (int i = 0; i < 13; i++)
     _pins[i] = new Pin(i + 1);
 }
 
-Pins::~Pins() {
+Board::~Board() {
   for (int i = 0; i < 13; i++)
     delete _pins[i];
   delete _instance;
 }
     
-Pins* Pins::getInstance() {
-  if (!_instance) _instance = new Pins();
+Board* Board::getInstance() {
+  if (!_instance) _instance = new Board();
   return _instance;
 }
 
-Pin* Pins::getPin(int pin) {
+Pin* Board::getPin(int pin) {
   return _pins[pin - 1];
 }

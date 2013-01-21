@@ -3,19 +3,19 @@
 
 #include "pin.h"
 
-class Pins {
+class Board {
 
-  static Pins* _instance;
+  static Board* _instance;
   Pin* _pins[13];  
 
   public:
     Pin* getPin(int);
 
-    static Pins* getInstance();
+    static Board* getInstance();
 
   private:
-    Pins();
-    ~Pins();
+    Board();
+    ~Board();
   
 };
 
