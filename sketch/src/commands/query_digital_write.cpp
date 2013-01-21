@@ -2,7 +2,7 @@
 
 #include "../bertha_buffer.h"
 #include "pin_command.h"
-#include "../pin.h"
+#include "../board/pin.h"
 
 QueryDigitalWriteCommand::QueryDigitalWriteCommand(BerthaBuffer request) : PinCommand(request) {
 }

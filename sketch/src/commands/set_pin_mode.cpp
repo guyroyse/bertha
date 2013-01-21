@@ -2,8 +2,8 @@
 
 #include "../bertha_buffer.h"
 #include "pin_command.h"
-#include "../pin_mode.h"
-#include "../pin.h"
+#include "../board/pin_mode.h"
+#include "../board/pin.h"
 
 SetPinModeCommand::SetPinModeCommand(BerthaBuffer request) : PinCommand(request) {
   _mode = PinMode(request.nextToken());
