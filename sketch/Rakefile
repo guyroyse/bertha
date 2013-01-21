@@ -3,4 +3,16 @@ require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new :spec
 
-task :default => :spec
+task :clean do
+  `ino clean`
+end
+
+task :build do
+  `ino build`
+end
+
+task :upload do
+  `ino upload`
+end
+
+task :default => [:clean, :build, :upload, :spec]
