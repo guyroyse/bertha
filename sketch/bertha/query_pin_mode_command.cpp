@@ -1,7 +1,7 @@
 #include "query_pin_mode_command.h"
 
 #include "buffer.h"
-#include "pins.h"
+#include "pin_command.h"
 #include "pin.h"
 #include "pin_mode.h"
 
@@ -13,4 +13,3 @@ void QueryPinModeCommand::executeInternal(Buffer* response) {
   PinMode mode = pin->getMode();
   response->append("OK: pin ")->append(pin->getPin())->append(" set to ")->append(mode.toString());
 }
-

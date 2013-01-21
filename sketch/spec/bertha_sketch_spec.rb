@@ -41,12 +41,32 @@ describe 'Bertha Sketch' do
       read_write("queryPinMode 13").should == 'OK: pin 13 set to OUTPUT'
     end
 
-    it 'turns a PIN on' do
+    it 'writes to a pin' do
       read_write("digitalWrite 13 1").should == 'OK: pin 13 set to 1'
     end
 
-    it 'turns a PIN off' do
-      read_write("digitalWrite 13 0").should == 'OK: pin 13 set to 0'
+    context 'when a pin is ON' do
+
+      before :each do
+        read_write("digitalWrite 13 1").should == 'OK: pin 13 set to 1'
+      end
+
+      it 'queries value written to pin' do
+        read_write("queryDigitalWrite 13").should == 'OK: pin 13 set to 1'
+      end
+
+    end
+
+    context 'when a pin is OFF' do
+
+      before :each do
+        read_write("digitalWrite 13 0").should == 'OK: pin 13 set to 0'
+      end
+
+      it 'queries value written to pin' do
+        read_write("queryDigitalWrite 13").should == 'OK: pin 13 set to 0'
+      end
+
     end
 
   end

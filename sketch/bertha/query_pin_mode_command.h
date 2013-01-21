@@ -6,8 +6,6 @@
 
 class QueryPinModeCommand : public PinCommand {
   
-  int _pin;
-  
   public:  
     QueryPinModeCommand(Buffer);
     void executeInternal(Buffer*);

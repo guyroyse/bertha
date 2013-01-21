@@ -1,7 +1,7 @@
 #include "digital_write_command.h"
 
 #include "buffer.h"
-#include "pins.h"
+#include "pin_command.h"
 #include "pin.h"
 
 DigitalWriteCommand::DigitalWriteCommand(Buffer request) : PinCommand(request) {
