@@ -2,11 +2,11 @@
 #define command_factory_h
 
 #include "command.h"
-#include "buffer.h"
+#include "bertha_buffer.h"
 
 class CommandFactory {
   public:
-    static Command* createCommand(Buffer);
+    static Command* createCommand(BerthaBuffer);
 };
 
 #endif

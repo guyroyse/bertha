@@ -2,11 +2,11 @@
 #define version_command_h
 
 #include "command.h"
-#include "buffer.h"
+#include "bertha_buffer.h"
 
 class VersionCommand : public Command {
   public:
-    void executeInternal(Buffer*);
+    void executeInternal(BerthaBuffer*);
 };
 
 #endif

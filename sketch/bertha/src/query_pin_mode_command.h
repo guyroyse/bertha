@@ -2,13 +2,13 @@
 #define query_pin_mode_command_h
 
 #include "pin_command.h"
-#include "buffer.h"
+#include "bertha_buffer.h"
 
 class QueryPinModeCommand : public PinCommand {
   
   public:  
-    QueryPinModeCommand(Buffer);
-    void executeInternal(Buffer*);
+    QueryPinModeCommand(BerthaBuffer);
+    void executeInternal(BerthaBuffer*);
 };
 
 #endif

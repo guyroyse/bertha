@@ -1,8 +1,8 @@
 #include "command.h"
 
-#include "buffer.h"
+#include "bertha_buffer.h"
 
-Buffer Command::execute() {
+BerthaBuffer Command::execute() {
   executeInternal(&_response);
   return _response;
 }

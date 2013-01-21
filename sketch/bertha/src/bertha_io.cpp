@@ -1,5 +1,8 @@
 #include "bertha_io.h"
 
+#include "bertha_buffer.h"
+#include "arduino.h"
+
 BerthaIO::BerthaIO() {
   Serial.begin(9600);
 }
@@ -8,7 +11,7 @@ void BerthaIO::reset() {
   request.empty();
 }
 
-Buffer BerthaIO::nextRequest() {
+BerthaBuffer BerthaIO::nextRequest() {
   while (true) {
     if (characterAvailable()) {
       char ch = readCharacter();
@@ -21,7 +24,7 @@ Buffer BerthaIO::nextRequest() {
   }
 }
 
-void BerthaIO::send(Buffer response) {
+void BerthaIO::send(BerthaBuffer response) {
   Serial.println(response.buffer());
 }
 

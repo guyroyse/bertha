@@ -5,19 +5,19 @@
 
 const int BUFFER_SIZE = 64;
 
-class Buffer {
+class BerthaBuffer {
   
   char _buffer[BUFFER_SIZE];
   
   public:
-    Buffer();
+    BerthaBuffer();
     
     void empty();
     char* buffer() { return _buffer; };
     
-    Buffer* append(char);
-    Buffer* append(char*);
-    Buffer* append(int);
+    BerthaBuffer* append(char);
+    BerthaBuffer* append(char*);
+    BerthaBuffer* append(int);
     
     char* firstToken();
     char* nextToken();

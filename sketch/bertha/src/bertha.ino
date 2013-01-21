@@ -1,6 +1,7 @@
 #include "arduino.h"
 
 #include "bertha_io.h"
+#include "bertha_buffer.h"
 #include "command.h"
 #include "command_factory.h"
 
@@ -11,15 +12,15 @@ void setup() {
 }
 
 void loop() {
-  Buffer request = io->nextRequest();
-  Buffer response = processRequest(request);
+  BerthaBuffer request = io->nextRequest();
+  BerthaBuffer response = processRequest(request);
   io->send(response);
   io->reset();
 }
 
-Buffer processRequest(Buffer request) {
+BerthaBuffer processRequest(BerthaBuffer request) {
   Command* command = CommandFactory::createCommand(request);
-  Buffer response = command->execute();
+  BerthaBuffer response = command->execute();
   delete command;
   return response;
 }

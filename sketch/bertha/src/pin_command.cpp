@@ -1,10 +1,10 @@
 #include "pin_command.h"
 
-#include "buffer.h"
+#include "bertha_buffer.h"
 #include "pin.h"
 #include "pins.h"
 
-PinCommand::PinCommand(Buffer request) {
+PinCommand::PinCommand(BerthaBuffer request) {
   _pin = request.nextInt();
 }
 

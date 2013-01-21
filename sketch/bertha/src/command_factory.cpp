@@ -1,10 +1,10 @@
 #include "command_factory.h"
 
 #include "command.h"
-#include "buffer.h"
+#include "bertha_buffer.h"
 #include "commands.h"
 
-Command* CommandFactory::createCommand(Buffer request) {
+Command* CommandFactory::createCommand(BerthaBuffer request) {
   char* verb = request.firstToken();
   if (!strcmp("version", verb)) return new VersionCommand();
   if (!strcmp("setPinMode", verb)) return new SetPinModeCommand(request);

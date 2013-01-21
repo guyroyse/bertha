@@ -3,7 +3,7 @@
 
 #include "pin_command.h"
 #include "pin_mode.h"
-#include "buffer.h"
+#include "bertha_buffer.h"
 
 class SetPinModeCommand : public PinCommand {
   
@@ -11,8 +11,8 @@ class SetPinModeCommand : public PinCommand {
   PinMode _mode;
   
   public:  
-    SetPinModeCommand(Buffer);
-    void executeInternal(Buffer*);
+    SetPinModeCommand(BerthaBuffer);
+    void executeInternal(BerthaBuffer*);
 };
 
 #endif

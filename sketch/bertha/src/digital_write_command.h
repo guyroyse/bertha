@@ -2,15 +2,15 @@
 #define digital_wirte_command_h
 
 #include "pin_command.h"
-#include "buffer.h"
+#include "bertha_buffer.h"
 
 class DigitalWriteCommand : public PinCommand {
   
   int _pin, _value;
   
   public:
-    DigitalWriteCommand(Buffer);
-    void executeInternal(Buffer*);
+    DigitalWriteCommand(BerthaBuffer);
+    void executeInternal(BerthaBuffer*);
 };
 
 #endif

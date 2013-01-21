@@ -1,18 +1,17 @@
 #ifndef bertha_io_h
 #define bertha_io_h
 
-#include "buffer.h"
-#include "arduino.h"
+#include "bertha_buffer.h"
 
 class BerthaIO {
   
-  Buffer request;
+  BerthaBuffer request;
   
   public:
     BerthaIO();
     void reset();
-    Buffer nextRequest();
-    void send(Buffer);
+    BerthaBuffer nextRequest();
+    void send(BerthaBuffer);
     
   private:
     boolean characterAvailable();

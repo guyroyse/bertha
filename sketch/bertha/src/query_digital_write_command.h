@@ -2,13 +2,13 @@
 #define query_digital_write_command_h
 
 #include "pin_command.h"
-#include "buffer.h"
+#include "bertha_buffer.h"
 
 class QueryDigitalWriteCommand : public PinCommand {
   
   public:  
-    QueryDigitalWriteCommand(Buffer);
-    void executeInternal(Buffer*);
+    QueryDigitalWriteCommand(BerthaBuffer);
+    void executeInternal(BerthaBuffer*);
 };
 
 #endif

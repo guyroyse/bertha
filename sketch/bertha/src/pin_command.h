@@ -2,7 +2,7 @@
 #define pin_command_h
 
 #include "command.h"
-#include "buffer.h"
+#include "bertha_buffer.h"
 #include "pin.h"
 
 class PinCommand : public Command {
@@ -10,7 +10,7 @@ class PinCommand : public Command {
   int _pin;
   
   public:
-    PinCommand(Buffer);
+    PinCommand(BerthaBuffer);
 
   protected:
     Pin* getPin();

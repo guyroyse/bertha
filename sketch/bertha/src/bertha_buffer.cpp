@@ -1,40 +1,40 @@
-#include "buffer.h"
+#include "bertha_buffer.h"
 
-Buffer::Buffer() {
+BerthaBuffer::BerthaBuffer() {
   empty();
 }
 
-void Buffer::empty() {
+void BerthaBuffer::empty() {
   strncpy(buffer(), "", size());
 }
 
-Buffer* Buffer::append(char ch) {
+BerthaBuffer* BerthaBuffer::append(char ch) {
   if (length() < maxLength())
     strncat(buffer(), &ch, 1);
   return this;
 }
 
-Buffer* Buffer::append(char* text) {
+BerthaBuffer* BerthaBuffer::append(char* text) {
   if (freeSpace() > strlen(text)) {
     strncat(buffer(), text, freeSpace());
   }
   return this;
 }
 
-Buffer* Buffer::append(int i) {
+BerthaBuffer* BerthaBuffer::append(int i) {
   char temp[32];
   sprintf(temp, "%i", i);
   return append(temp);
 }
 
-char* Buffer::firstToken() {
+char* BerthaBuffer::firstToken() {
   return strtok(buffer(), " ");
 }
 
-char* Buffer::nextToken() {
+char* BerthaBuffer::nextToken() {
   return strtok(NULL, " ");
 }
 
-int Buffer::nextInt() {
+int BerthaBuffer::nextInt() {
   return atoi(strtok(NULL, " "));
 }
