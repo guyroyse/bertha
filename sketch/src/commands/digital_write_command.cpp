@@ -1,8 +1,8 @@
 #include "digital_write_command.h"
 
-#include "bertha_buffer.h"
+#include "../bertha_buffer.h"
 #include "pin_command.h"
-#include "pin.h"
+#include "../pin.h"
 
 DigitalWriteCommand::DigitalWriteCommand(BerthaBuffer request) : PinCommand(request) {
   _value = request.nextInt();

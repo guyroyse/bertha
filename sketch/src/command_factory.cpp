@@ -1,6 +1,6 @@
 #include "command_factory.h"
 
-#include "command.h"
+#include "commands/command.h"
 #include "bertha_buffer.h"
 #include "commands.h"
 

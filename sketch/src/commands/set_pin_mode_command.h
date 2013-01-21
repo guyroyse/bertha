@@ -2,8 +2,8 @@
 #define set_pin_mode_command_h
 
 #include "pin_command.h"
-#include "pin_mode.h"
-#include "bertha_buffer.h"
+#include "../pin_mode.h"
+#include "../bertha_buffer.h"
 
 class SetPinModeCommand : public PinCommand {
   

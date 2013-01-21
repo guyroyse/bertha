@@ -2,7 +2,7 @@
 #define digital_wirte_command_h
 
 #include "pin_command.h"
-#include "bertha_buffer.h"
+#include "../bertha_buffer.h"
 
 class DigitalWriteCommand : public PinCommand {
   

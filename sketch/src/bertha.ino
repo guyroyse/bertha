@@ -2,7 +2,7 @@
 
 #include "bertha_io.h"
 #include "bertha_buffer.h"
-#include "command.h"
+#include "commands/command.h"
 #include "command_factory.h"
 
 BerthaIO* io;
