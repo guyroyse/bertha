@@ -9,18 +9,15 @@ class Pin {
   PinMode _mode;
   
   public:    
-    Pin() {};
+    Pin(int);
     
-    int getPin() { return _pin; };
-    int getValue() { return _value; };
-    PinMode getMode() { return _mode; };
+    int getPin();
+    PinMode getMode();
+    int getValue();
   
-    void setPin(int pin) { _pin = pin; };
-    void setValue(int value) { _value = value; };
-    void setMode(PinMode mode) { _mode = mode; };
+    void setValue(int); 
+    void setMode(PinMode);
   
 };
 
 #endif
-  
-    

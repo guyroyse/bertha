@@ -1,7 +1,7 @@
 #ifndef commands_h
 #define commands_h
 
-#include "pin.h"
+#include "pins.h"
 #include "buffer.h"
 #include "arduino.h"
 
@@ -24,18 +24,28 @@ class VersionCommand : public Command {
     void executeInternal(Buffer*);
 };
 
-class PinModeCommand : public Command {
+class SetPinModeCommand : public Command {
   
-  Pin pin;
+  int _pin;
+  PinMode _mode;
   
   public:  
-    PinModeCommand(Buffer);
+    SetPinModeCommand(Buffer);
+    void executeInternal(Buffer*);
+};
+
+class QueryPinModeCommand : public Command {
+  
+  int _pin;
+  
+  public:  
+    QueryPinModeCommand(Buffer);
     void executeInternal(Buffer*);
 };
 
 class DigitalWriteCommand : public Command {
   
-  Pin pin;
+  int _pin, _value;
   
   public:
     DigitalWriteCommand(Buffer);
