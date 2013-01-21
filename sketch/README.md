@@ -36,4 +36,4 @@ Push to compiled sketch to the Arduino:
 
 Run the tests:
 
-      rake spec 
+      bundle exec rake spec 

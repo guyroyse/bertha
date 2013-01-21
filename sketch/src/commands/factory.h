@@ -2,7 +2,13 @@
 #define command_factory_h
 
 #include "command.h"
-#include "../bertha_buffer.h"
+
+#include "version.h"
+#include "set_pin_mode.h"
+#include "query_pin_mode.h"
+#include "digital_write.h"
+#include "query_digital_write.h"
+#include "error.h"
 
 class CommandFactory {
   public:

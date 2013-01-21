@@ -2,7 +2,6 @@
 #define pin_command_h
 
 #include "command.h"
-#include "../bertha_buffer.h"
 #include "../board/board.h"
 
 class PinCommand : public Command {

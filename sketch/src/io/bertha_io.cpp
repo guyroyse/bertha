@@ -1,8 +1,5 @@
 #include "bertha_io.h"
 
-#include "bertha_buffer.h"
-#include "arduino.h"
-
 BerthaIO::BerthaIO() {
   Serial.begin(9600);
 }

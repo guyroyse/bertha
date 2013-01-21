@@ -1,5 +1,4 @@
 #include "pin.h"
-#include "arduino.h"
 
 Pin::Pin(int pin) {
   _pin = pin;

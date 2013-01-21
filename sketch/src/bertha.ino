@@ -1,7 +1,7 @@
 #include "arduino.h"
 
-#include "bertha_io.h"
-#include "bertha_buffer.h"
+#include "io/bertha_io.h"
+#include "io/bertha_buffer.h"
 #include "commands/command.h"
 #include "commands/factory.h"
 

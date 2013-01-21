@@ -1,6 +1,8 @@
 #ifndef pin_mode_h
 #define pin_mode_h
 
+#include "arduino.h"
+
 class PinMode {
 
   int _mode;

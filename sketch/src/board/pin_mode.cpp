@@ -1,5 +1,4 @@
 #include "pin_mode.h"
-#include "arduino.h"
 
 PinMode::PinMode() {
   _mode = OUTPUT;

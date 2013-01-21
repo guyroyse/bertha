@@ -1,7 +1,7 @@
 #ifndef command_h
 #define command_h
 
-#include "../bertha_buffer.h"
+#include "../io/bertha_buffer.h"
 
 class Command {
   
