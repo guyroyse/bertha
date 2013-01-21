@@ -1,4 +1,4 @@
-#include "set_pin_mode_command.h"
+#include "set_pin_mode.h"
 
 #include "../bertha_buffer.h"
 #include "pin_command.h"

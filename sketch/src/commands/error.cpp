@@ -1,4 +1,4 @@
-#include "error_command.h"
+#include "error.h"
 #include "../bertha_buffer.h"
 
 void ErrorCommand::executeInternal(BerthaBuffer* response) {

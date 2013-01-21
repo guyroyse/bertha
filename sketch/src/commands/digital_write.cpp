@@ -1,4 +1,4 @@
-#include "digital_write_command.h"
+#include "digital_write.h"
 
 #include "../bertha_buffer.h"
 #include "pin_command.h"
