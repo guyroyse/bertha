@@ -1,6 +1,8 @@
 #include "arduino.h"
+
 #include "bertha_io.h"
-#include "commands.h"
+#include "command.h"
+#include "command_factory.h"
 
 BerthaIO* io;
 
