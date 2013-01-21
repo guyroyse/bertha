@@ -5,14 +5,12 @@
 #include "pins.h"
 #include "pin.h"
 
-SetPinModeCommand::SetPinModeCommand(Buffer request) {
-  _pin = request.nextInt();
+SetPinModeCommand::SetPinModeCommand(Buffer request) : PinCommand(request) {
   _mode = PinMode(request.nextToken());
 }
 
 void SetPinModeCommand::executeInternal(Buffer* response) {
-  Pins* pins = Pins::getInstance();
-  Pin* pin = pins->getPin(_pin);
+  Pin* pin = getPin();
   pin->setMode(_mode);
   response->append("OK: pin ")->append(pin->getPin())->append(" set to ")->append(pin->getMode().toString());
 }

@@ -4,14 +4,12 @@
 #include "pins.h"
 #include "pin.h"
 
-DigitalWriteCommand::DigitalWriteCommand(Buffer request) {
-  _pin = request.nextInt();
+DigitalWriteCommand::DigitalWriteCommand(Buffer request) : PinCommand(request) {
   _value = request.nextInt();
 }
 
 void DigitalWriteCommand::executeInternal(Buffer* response) {
-  Pins* pins = Pins::getInstance();
-  Pin* pin = pins->getPin(_pin);
+  Pin* pin = getPin();
   pin->setValue(_value);
   response->append("OK: pin ")->append(pin->getPin())->append(" set to ")->append(pin->getValue());
 }

@@ -1,10 +1,10 @@
 #ifndef query_pin_mode_command_h
 #define query_pin_mode_command_h
 
-#include "command.h"
+#include "pin_command.h"
 #include "buffer.h"
 
-class QueryPinModeCommand : public Command {
+class QueryPinModeCommand : public PinCommand {
   
   int _pin;
   

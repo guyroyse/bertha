@@ -5,13 +5,11 @@
 #include "pin.h"
 #include "pin_mode.h"
 
-QueryPinModeCommand::QueryPinModeCommand(Buffer request) {
-  _pin = request.nextInt();
+QueryPinModeCommand::QueryPinModeCommand(Buffer request) : PinCommand(request) {
 }
 
 void QueryPinModeCommand::executeInternal(Buffer* response) {
-  Pins* pins = Pins::getInstance();
-  Pin* pin = pins->getPin(_pin);
+  Pin* pin = getPin();
   PinMode mode = pin->getMode();
   response->append("OK: pin ")->append(pin->getPin())->append(" set to ")->append(mode.toString());
 }
