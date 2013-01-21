@@ -12,15 +12,14 @@ void setup() {
 }
 
 void loop() {
-  BerthaBuffer request = io->nextRequest();
-  BerthaBuffer response = processRequest(request);
-  io->send(response);
-  io->reset();
-}
 
-BerthaBuffer processRequest(BerthaBuffer request) {
+  BerthaBuffer request = io->nextRequest();
+
   Command* command = CommandFactory::createCommand(request);
   BerthaBuffer response = command->execute();
   delete command;
-  return response;
+
+  io->send(response);
+  io->reset();
+
 }
