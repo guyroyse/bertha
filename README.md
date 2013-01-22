@@ -1,7 +1,9 @@
 #Bertha
 
-Bertha of Burgundy was the wife of Arduin of Ivrea who was an Italian king over a millennium ago. The Arduino
-was named after Arduin.  So, what better name for a framework that exposes the inside of the Arduino to high-order
+The (Arduino|http://arduino.cc) microcontroller was named after Arduin of Ivrea.  Arduin was an Italian king who
+lived over a millennium ago.  His wife was Bertha of Burgundy and this library is named in her honor.
+
+_And what is this library?_ you might ask.  Well, this library exposes the inner-workings of the Arduino to high-order
 programming languages.  Sure, C is great and we can program the Arduino with it.  But Ruby is more powerful, Java
 more ubiquitous, and C# more... uh... Microsofty.  But most importantly, the hardware that these languages run on
 has more ready and sophisticated access to things like networking, video, and sound.  Things that the Arduino can
@@ -15,19 +17,19 @@ set the value of pin, etc.  Each command will respond with an appropriate status
 
 For example, using a simple terminal an exchange might look something like this:
 
-    VERSION
-    *1.0.0*
-    PIN 1 OUTPUT
-    *OK*
-    PIN 1 ON
-    *OK*
-    PIN 2 INPUT
-    *OK*
-    PIN 2
-    *ON"
+    version
+    v1.0.0
+    setPinMode 1 OUTPUT
+    OK: pin 1 set to OUTPUT
+    digitalWrite 1 1
+    OK: pin 1 set to 1
+    setPinMode 2 INPUT
+    OK: pin 2 set to INPUT
+    digitalRead 2
+    OK: pin 2 is 1
 
-With this protocol in place the second piece of Bertha shines.  This protocol is then wrapped in an API for several
-of the common and popular languages.  Ruby is planned first and the API will look something like this.
+With this protocol in place the second piece of Bertha shines.  Out protocol is wrapped in an API for several
+of the more common and popular languages.  Ruby is planned first and the API will look something like this.
 
     Bertha.open <port> do |bertha|
       bertha.version     # returns 1.0.0
@@ -37,15 +39,5 @@ of the common and popular languages.  Ruby is planned first and the API will loo
       bertha.pin 2       # returns true
     end
 
-Right now only VERSION is implemented.
-
-##How To Use It
-
-There's not much that's been developed yet to actually use.  The sketch needs to be compiled and loaded on the
-Arduino.  The various APIs that talk over the serial port to the Arduino will have specialize install instructions.
-
-Right now, I am working on the Ruby library.  It will be a gem, of course.  I also have plans to add Java ad a JAR,
-JavaScript/CoffeeScript for Node.js as npm packages after that.  Then, whatever strikes my fancy!  Hopefully, some
-intrepid helper (that's you!) will come along and support other platforms that I know less about like Python or Perl.
-
-Come back later when there's more too see or, better yet, get involved and send me some pull requests.
+Current the standard sketch is being developed and the protocol is totally subject to change.  Once completed,
+however, gems, jars, and packages galore shall be build.  Maybe you'll build some of them yourself?
