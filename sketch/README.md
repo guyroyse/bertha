@@ -8,9 +8,9 @@ An Arduino must be plugged into the development machine in order to run the test
 tests run against the hardware.  Also, pins 12 & 13 should be connected to each other with
 a short piece of wire.
 
-The Arduino IDE must be installed.  Go to http://arduino.cc to download and install it.
+The Arduino IDE must be installed.  Go to main [Arduino](http://arduino.cc) page to download and install it.
 
-Ino (http://inotool.org/) must be installed.  Follow the instructions on the site.  If
+[Ino](http://inotool.org/) must be installed.  Follow the instructions on the site.  If
 you have problems with the install, use the setup.py script to install instead.
 
       python setup.py install
