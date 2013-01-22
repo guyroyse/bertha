@@ -1,6 +1,6 @@
 #Bertha
 
-The (Arduino|http://arduino.cc) microcontroller was named after Arduin of Ivrea.  Arduin was an Italian king who
+The [Arduino](http://arduino.cc) microcontroller was named after Arduin of Ivrea.  Arduin was an Italian king who
 lived over a millennium ago.  His wife was Bertha of Burgundy and this library is named in her honor.
 
 _And what is this library?_ you might ask.  Well, this library exposes the inner-workings of the Arduino to high-order
