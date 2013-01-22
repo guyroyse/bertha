@@ -8,6 +8,7 @@
 #include "query_pin_mode.h"
 #include "digital_write.h"
 #include "query_digital_write.h"
+#include "digital_read.h"
 #include "error.h"
 
 class CommandFactory {

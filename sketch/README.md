@@ -5,7 +5,8 @@ Setup
 -----
 
 An Arduino must be plugged into the development machine in order to run the tests as the
-tests run against the hardware.
+tests run against the hardware.  Also, pins 12 & 13 should be connected to each other with
+a short piece of wire.
 
 The Arduino IDE must be installed.  Go to http://arduino.cc to download and install it.
 

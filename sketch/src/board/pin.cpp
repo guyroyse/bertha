@@ -13,6 +13,7 @@ PinMode Pin::getMode() {
 }
 
 int Pin::getValue() {
+  if (_mode.getMode() == INPUT) return digitalRead(_pin);
   return _value;
 }
 

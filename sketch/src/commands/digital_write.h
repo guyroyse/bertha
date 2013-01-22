@@ -5,7 +5,7 @@
 
 class DigitalWriteCommand : public PinCommand {
   
-  int _pin, _value;
+  int _value;
   
   public:
     DigitalWriteCommand(BerthaBuffer);

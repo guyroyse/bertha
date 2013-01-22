@@ -7,6 +7,10 @@ describe 'Bertha Sketch' do
     @serial.gets.chomp
   end
 
+  def write request
+    read_write request
+  end
+
   let(:port) { '/dev/cu.usbmodemfa131' }
 
   before :all do
@@ -34,7 +38,8 @@ describe 'Bertha Sketch' do
   context 'when pin mode has been set to OUTPUT' do
 
     before :each do
-      read_write("setPinMode 13 OUTPUT").should == 'OK: pin 13 set to OUTPUT'
+      write "setPinMode 13 OUTPUT"
+      write "setPinMode 12 INPUT"
     end
 
     it 'queries pin mode of OUTPUT' do
@@ -45,25 +50,33 @@ describe 'Bertha Sketch' do
       read_write("digitalWrite 13 1").should == 'OK: pin 13 set to 1'
     end
 
-    context 'when a pin is ON' do
+    context 'when an ON is written to the pin' do
 
-      before :each do
-        read_write("digitalWrite 13 1").should == 'OK: pin 13 set to 1'
+      before :each do        
+        write "digitalWrite 13 1"
       end
 
-      it 'queries value written to pin' do
+      it 'writes an ON' do
+        read_write('digitalRead 12').should == 'OK: pin 12 is 1'
+      end
+
+      it 'queries value written to pin as ON' do
         read_write("queryDigitalWrite 13").should == 'OK: pin 13 set to 1'
       end
 
     end
 
-    context 'when a pin is OFF' do
+    context 'when an OFF is written to the pin' do
 
       before :each do
-        read_write("digitalWrite 13 0").should == 'OK: pin 13 set to 0'
+        write "digitalWrite 13 0"
       end
 
-      it 'queries value written to pin' do
+      it 'writes an OFF' do
+        read_write('digitalRead 12').should == 'OK: pin 12 is 0'
+      end
+
+      it 'queries value written to pin as OFF' do
         read_write("queryDigitalWrite 13").should == 'OK: pin 13 set to 0'
       end
 
@@ -74,11 +87,23 @@ describe 'Bertha Sketch' do
   context 'when pin mode has been set to INPUT' do
 
     before :each do
-      read_write("setPinMode 13 INPUT").should == 'OK: pin 13 set to INPUT'
+      write "setPinMode 12 INPUT"
     end
 
     it 'queries pin mode of INPUT' do
-      read_write("queryPinMode 13").should == 'OK: pin 13 set to INPUT'
+      read_write("queryPinMode 12").should == 'OK: pin 12 set to INPUT'
+    end
+
+    it 'reads an ON value from the pin' do
+      write "setPinMode 13 OUTPUT"
+      write "digitalWrite 13 1"
+      read_write("digitalRead 12").should == 'OK: pin 12 is 1'
+    end
+
+    it 'reads an OFF value from the pin' do
+      write "setPinMode 13 OUTPUT"
+      write "digitalWrite 13 0"
+      read_write("digitalRead 12").should == 'OK: pin 12 is 0'
     end
 
   end

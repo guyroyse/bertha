@@ -7,5 +7,6 @@ Command* CommandFactory::createCommand(BerthaBuffer request) {
   if (!strcmp("queryPinMode", verb)) return new QueryPinModeCommand(request);
   if (!strcmp("digitalWrite", verb)) return new DigitalWriteCommand(request);
   if (!strcmp("queryDigitalWrite", verb)) return new QueryDigitalWriteCommand(request);
+  if (!strcmp("digitalRead", verb)) return new DigitalReadCommand(request);
   return new ErrorCommand();
 }
