@@ -41,9 +41,9 @@ describe 'Bertha Sketch' do
       @query_response.should include('OK')
     end
 
-#   it 'reports the pin number' do
-#     @query_response.should include('pin=13')
-#   end
+    it 'reports the pin number' do
+      @query_response.should include('pin=13')
+    end
 
 #   it 'reports a default mode of INPUT' do
 #     @query_response.should include('mode=INPUT')

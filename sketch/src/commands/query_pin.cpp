@@ -10,5 +10,5 @@ void QueryPinCommand::executeInternal(BerthaBuffer* response) {
   Board* board = Board::getInstance();
   Pin* pin = board->getPin(_pin);
   PinMode mode = pin->getMode();
-  response->append("OK");
+  response->append("OK")->append(" pin=")->append(_pin);
 }
