@@ -4,6 +4,7 @@
 #include "command.h"
 
 #include "version.h"
+#include "query_pin.h"
 #include "set_pin_mode.h"
 #include "query_pin_mode.h"
 #include "digital_write.h"

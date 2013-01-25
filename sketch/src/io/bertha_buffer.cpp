@@ -27,7 +27,7 @@ BerthaBuffer* BerthaBuffer::append(int i) {
   return append(temp);
 }
 
-char* BerthaBuffer::firstToken() {
+char* BerthaBuffer::parseVerb() {
   return strtok(buffer(), " ");
 }
 
@@ -36,5 +36,13 @@ char* BerthaBuffer::nextToken() {
 }
 
 int BerthaBuffer::nextInt() {
-  return atoi(strtok(NULL, " "));
+  return atoi(nextToken());
+}
+
+char* BerthaBuffer::nextName() {
+  return strtok(NULL, "=");
+}
+
+char* BerthaBuffer::nextValue() {
+  return nextToken();
 }

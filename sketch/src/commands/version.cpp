@@ -1,5 +1,5 @@
 #include "version.h"
 
 void VersionCommand::executeInternal(BerthaBuffer* response) {
-  response->append("v1.0.0");
+  response->append("OK version=1.0.0");
 }

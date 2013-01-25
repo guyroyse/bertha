@@ -19,9 +19,12 @@ class BerthaBuffer {
     BerthaBuffer* append(char*);
     BerthaBuffer* append(int);
     
-    char* firstToken();
     char* nextToken();
     int nextInt();
+
+    char* parseVerb();
+    char* nextName();
+    char* nextValue();
     
   private:
     int size() { return BUFFER_SIZE; };

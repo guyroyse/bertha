@@ -23,12 +23,41 @@ describe 'Bertha Sketch' do
     @serial.close
   end
 
-  it 'returns ERROR for an unknown command' do
-    read_write("bad_command").should == 'ERR: unknown command'
+  it 'returns an unknown command error when given an unknown command' do
+    read_write("bad_command").should == "ERR msg='unknown command'"
   end
 
   it 'returns version information' do
-    read_write("version").should == 'v1.0.0'
+    read_write("version").should == 'OK version=1.0.0'
+  end
+
+  describe 'queryPin' do
+
+    before :each do
+      @query_response = read_write("queryPin pin=13")
+    end
+
+    it 'reports an OK status' do
+      @query_response.should include('OK')
+    end
+
+#   it 'reports the pin number' do
+#     @query_response.should include('pin=13')
+#   end
+
+#   it 'reports a default mode of INPUT' do
+#     @query_response.should include('mode=INPUT')
+#   end
+
+#   it 'reports a default value of LOW' do
+#     @query_response.should include('value=LOW')
+#   end
+
+# complains when pin is missing
+# complains when pin is out of range
+# ignores other arguments
+# complains when pin is not a number
+
   end
 
   it 'sets pin mode' do
