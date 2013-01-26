@@ -29,13 +29,11 @@ char* PinMode::toString() {
 }
 
 char* PinMode::modeToString(int mode) {
-  if (mode == INPUT_PULLUP) return "PULLUP";
   if (mode == INPUT) return "INPUT";
   return "OUTPUT";
 }
 
 int PinMode::stringToMode(char* modeString) {
-  if (!strcmp("PULLUP", modeString)) return INPUT_PULLUP;
   if (!strcmp("INPUT", modeString)) return INPUT;
   return OUTPUT;
 }
