@@ -7,6 +7,7 @@ describe 'setPin' do
   context 'when setting mode to OUTPUT' do
     
     before :each do
+      write "setPin pin=12 mode=INPUT"
       @response = read_write("setPin pin=13 mode=OUTPUT")
     end
     
@@ -44,6 +45,10 @@ describe 'setPin' do
         @response.should include('value=HIGH')
       end
       
+      it 'emmits a value of HIGH' do
+        read_write("queryPin pin=12").should include("value=HIGH")
+      end
+      
     end
     
     context 'when setting value to LOW' do
@@ -68,6 +73,10 @@ describe 'setPin' do
         @response.should include('value=LOW')
       end
       
+      it 'emmits a value of LOW' do
+        read_write("queryPin pin=12").should include("value=LOW")
+      end
+      
     end
     
   end
@@ -75,6 +84,7 @@ describe 'setPin' do
   context 'when setting value to HIGH and mode to OUTPUT' do
     
     before :each do
+      write "setPin pin=12 mode=INPUT"
       @response = read_write("setPin pin=13 mode=OUTPUT value=HIGH")
     end
     
@@ -94,11 +104,16 @@ describe 'setPin' do
       @response.should include('value=HIGH')
     end
     
+    it 'emmits a value of HIGH' do
+      read_write("queryPin pin=12").should include("value=HIGH")
+    end
+    
   end
   
   context 'when seeting value to LOW and mode to OUTPUT' do
     
     before :each do
+      write "setPin pin=12 mode=INPUT"
       @response = read_write("setPin pin=13 mode=OUTPUT value=LOW")
     end
     
@@ -116,6 +131,10 @@ describe 'setPin' do
     
     it 'reports a value of LOW' do
       @response.should include('value=LOW')
+    end
+    
+    it 'emmits a value of LOW' do
+      read_write("queryPin pin=12").should include("value=LOW")
     end
     
   end
