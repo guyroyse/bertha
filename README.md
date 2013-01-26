@@ -18,15 +18,22 @@ set the value of pin, etc.  Each command will respond with an appropriate status
 For example, using a simple terminal an exchange might look something like this:
 
     version
-    v1.0.0
-    setPinMode 1 OUTPUT
-    OK: pin 1 set to OUTPUT
-    digitalWrite 1 1
-    OK: pin 1 set to 1
-    setPinMode 2 INPUT
-    OK: pin 2 set to INPUT
-    digitalRead 2
-    OK: pin 2 is 1
+    OK version=1.0.0
+
+    setPin pin=12 mode=OUTPUT value=LOW
+    OK pin=12 mode=OUTPUT value=LOW
+
+    setPin pin=12 value=HIGH
+    OK pin=12 mode=OUTPUT value=HIGH
+
+    queryPin pin=12
+    OK pin=12 mode=OUTPUT value=HIGH
+
+    setPin pin=13 mode=INPUT
+    OK pin=13 mode=INPUT value=HIGH
+
+    queryPin pin=13
+    OK pin=13 mode=INPUT value=HIGH
 
 With this protocol in place the second piece of Bertha shines.  Out protocol is wrapped in an API for several
 of the more common and popular languages.  Ruby is planned first and the API will look something like this.
