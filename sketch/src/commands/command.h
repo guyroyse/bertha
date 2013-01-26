@@ -3,7 +3,7 @@
 
 #include "../io/bertha_buffer.h"
 #include "../board/board.h"
-#include "command_parser.h"
+#include "../parser/command_parser.h"
 
 class Command {
   

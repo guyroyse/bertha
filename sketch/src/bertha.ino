@@ -3,7 +3,7 @@
 #include "io/bertha_io.h"
 #include "io/bertha_buffer.h"
 #include "commands/command.h"
-#include "commands/factory.h"
+#include "factory/factory.h"
 
 BerthaIO* io;
 
