@@ -1,5 +1,8 @@
 #include "error.h"
 
+ErrorCommand::ErrorCommand(CommandParser* parser) : Command(parser) {
+}
+
 void ErrorCommand::updateBoard() {
 }
 

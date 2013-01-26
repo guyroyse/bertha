@@ -4,7 +4,10 @@
 #include "command.h"
 
 class ErrorCommand : public Command {
+
   public:
+    ErrorCommand(CommandParser*);
+
     void updateBoard();
     void buildResponse();
 };

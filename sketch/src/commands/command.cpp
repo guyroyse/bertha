@@ -1,11 +1,20 @@
 #include "command.h"
 
-Command::Command() {
+Command::Command(CommandParser* parser) {
   _board = Board::getInstance();
+  _parser = parser;
+}
+
+Command::~Command() {
+  delete _parser;
 }
 
 Board* Command::getBoard() {
   return _board;
+}
+
+CommandParser* Command::getParser() {
+  return _parser;
 }
 
 BerthaBuffer Command::execute() {

@@ -2,7 +2,6 @@
 #define query_pin_command_h
 
 #include "pin_command.h"
-#include "../board/board.h"
 
 class QueryPinCommand : public PinCommand {
 

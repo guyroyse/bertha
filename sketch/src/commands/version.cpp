@@ -1,5 +1,8 @@
 #include "version.h"
 
+VersionCommand::VersionCommand(CommandParser* parser) : Command(parser) {
+}
+
 void VersionCommand::updateBoard() {
 }
 
