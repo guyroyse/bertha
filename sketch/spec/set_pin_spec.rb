@@ -4,6 +4,37 @@ describe 'setPin' do
     write 'reset'
   end
   
+  context 'when mode and value are not set' do
+    
+    before :each do
+      write "setPin pin=12 mode=INPUT"
+      write "setPin pin=13 mode=OUTPUT value=HIGH"
+      @response = read_write("setPin pin=13")
+    end
+    
+    it 'reports an OK status' do
+      @response.should include('OK')
+    end
+    
+    it 'reports the pin number' do
+      @response.should include('pin=13')        
+    end
+    
+    it 'reports the previous mode' do
+      @response.should include('mode=OUTPUT')
+    end
+    
+    it 'reports the previous value' do
+      @response.should include('value=HIGH')      
+    end
+    
+    it 'emmits the previous value' do
+      read_write("queryPin pin=12").should include("value=HIGH")      
+    end
+    
+    
+  end
+  
   context 'when setting mode to OUTPUT' do
     
     before :each do
@@ -21,6 +52,14 @@ describe 'setPin' do
     
     it 'reports a mode of OUTPUT' do
       @response.should include('mode=OUTPUT')
+    end
+    
+    it 'reports a value of LOW' do
+      @response.should include('value=LOW')      
+    end
+    
+    it 'emmits a value of LOW' do
+      read_write("queryPin pin=12").should include("value=LOW")      
     end
     
     context 'when setting value to HIGH' do
@@ -159,5 +198,9 @@ describe 'setPin' do
     end
     
   end
+  
+  # complains when pin is missing
+  # complains when pin is out of range
+  # complains when pin is not a number
   
 end
