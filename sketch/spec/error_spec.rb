@@ -1,4 +1,4 @@
-describe 'bad command' do
+describe 'error' do
   
   before :each do
     @response = read_write("bad_command")
