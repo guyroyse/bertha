@@ -5,9 +5,6 @@
 
 class SetPinCommand : public PinCommand {
 
-  char* _mode;
-  char* _value;
-
   public:  
     SetPinCommand(CommandParser*);
     void updateBoard();

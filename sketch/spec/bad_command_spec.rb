@@ -11,5 +11,5 @@ describe 'bad command' do
   it 'reports an unknown command message' do
     read_write("bad_command").should include("msg='unknown command'")
   end
-
+      
 end

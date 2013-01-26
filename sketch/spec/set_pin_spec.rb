@@ -142,6 +142,7 @@ describe 'setPin' do
   context 'when setting mode to INPUT' do
     
     before :each do
+      write "setPin pin=12 mode=OUTPUT"
       @response = read_write("setPin pin=13 mode=INPUT")
     end
     

@@ -1,14 +1,17 @@
 #include "set_pin.h"
 
 SetPinCommand::SetPinCommand(CommandParser* parser) : PinCommand(parser) {
-  _mode = parser->argument("mode");
-  _value = parser->argument("value");
 }
 
 void SetPinCommand::updateBoard() {
+
+  CommandParser* parser = this->getParser();
+  char* mode = parser->argument("mode");
+  char* value = parser->argument("value");
+
   Pin* pin = this->getPin();
-  if (_mode) pin->setMode(PinMode(_mode));
-  if (_value) pin->setValue(PinValue(_value));
+  if (mode) pin->setMode(PinMode(mode));
+  if (value) pin->setValue(PinValue(value));
 }
 
 void SetPinCommand::buildResponse() {
