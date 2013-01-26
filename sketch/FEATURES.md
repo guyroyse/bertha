@@ -11,8 +11,7 @@ This is really just a todo list.
 - read analog
 - write analog using PWM
 - error if not PWM pins
-- Time running in millis()
-- Time running in micros()
+- time running (millis, micros)
 - help system
 - board detection (support Mega and other Arduino boards other than Uno)
 - tones
