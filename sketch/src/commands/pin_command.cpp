@@ -1,10 +1,14 @@
 #include "pin_command.h"
 
-PinCommand::PinCommand(BerthaBuffer request) {
-  _pin = request.nextInt();
+PinCommand::PinCommand(CommandParser* parser) : Command() {
+  _parser = parser;
+  _pin = _parser->argumentAsInt("pin");
+}
+
+PinCommand::~PinCommand() {
+  delete _parser;
 }
 
 Pin* PinCommand::getPin() {
-  Board* board = Board::getInstance();
-  return board->getPin(_pin);
+  return this->getBoard()->getPin(_pin);
 };

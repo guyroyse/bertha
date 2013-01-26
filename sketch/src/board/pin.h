@@ -1,24 +1,27 @@
 #ifndef pin_h
 #define pin_h
 
-#include "arduino.h"
+#include "Arduino.h"
 #include "pin_mode.h"
+#include "pin_value.h"
 
 class Pin {
 
-  int _pin, _value;
+  int _pin;
   PinMode _mode;
+  PinValue _value;
   
   public:    
     Pin(int);
     
     int getPin();
     PinMode getMode();
-    int getValue();
+    PinValue getValue();
   
-    void setValue(int); 
+    void setValue(PinValue);
     void setMode(PinMode);
-  
+
+    void reset();
 };
 
 #endif

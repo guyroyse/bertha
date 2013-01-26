@@ -1,41 +1,41 @@
 #include "pin_mode.h"
 
 PinMode::PinMode() {
-  _mode = OUTPUT;
+  _mode = INPUT;
 }
 
 PinMode::PinMode(int mode) {
-  setMode(mode);
+  set(mode);
 }
 
 PinMode::PinMode(char* mode) {
-  setMode(mode);
+  set(mode);
 }
 
-void PinMode::setMode(int mode) {
+void PinMode::set(int mode) {
   _mode = mode;
 }
 
-void PinMode::setMode(char* mode) {
-  setMode(stringToMode(mode));
+void PinMode::set(char* mode) {
+  set(stringToMode(mode));
 }
 
-int PinMode::getMode() {
+int PinMode::get() {
   return _mode;
 }
 
 char* PinMode::toString() {
-  return modeToString(getMode());
+  return modeToString(get());
 }
 
 char* PinMode::modeToString(int mode) {
   if (mode == INPUT_PULLUP) return "PULLUP";
   if (mode == INPUT) return "INPUT";
-  if (mode == OUTPUT) return "OUTPUT";
+  return "OUTPUT";
 }
 
 int PinMode::stringToMode(char* modeString) {
   if (!strcmp("PULLUP", modeString)) return INPUT_PULLUP;
   if (!strcmp("INPUT", modeString)) return INPUT;
-  if (!strcmp("OUTPUT", modeString)) return OUTPUT;
+  return OUTPUT;
 }

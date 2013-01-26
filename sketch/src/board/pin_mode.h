@@ -13,17 +13,17 @@ class PinMode {
     PinMode(int);
     PinMode(char*);
     
-    void setMode(int);
-    void setMode(char*);
+    void set(int);
+    void set(char*);
     
-    int getMode();
+    int get();
     
     char* toString();
-  
+
   private:
   
     int stringToMode(char*);
-    char* modeToString(int mode);
+    char* modeToString(int);
   
 };
 

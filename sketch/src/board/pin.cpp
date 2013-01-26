@@ -12,17 +12,23 @@ PinMode Pin::getMode() {
   return _mode;
 }
 
-int Pin::getValue() {
-  if (_mode.getMode() == INPUT) return digitalRead(_pin);
+PinValue Pin::getValue() {
+  if (_mode.get() == INPUT)
+    return PinValue(digitalRead(_pin));
   return _value;
 }
 
-void Pin::setMode(PinMode mode) { 
+void Pin::setMode(PinMode mode) {
   _mode = mode;
-  pinMode(_pin, _mode.getMode());
+  pinMode(_pin, _mode.get());
 }
 
-void Pin::setValue(int value) { 
+void Pin::setValue(PinValue value) {
   _value = value;
-  digitalWrite(_pin, _value);
+  digitalWrite(_pin, _value.get());
+}
+
+void Pin::reset() {
+  this->setMode(PinMode(INPUT));
+  this->setValue(PinValue(LOW));
 }

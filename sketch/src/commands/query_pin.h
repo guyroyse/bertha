@@ -1,16 +1,16 @@
 #ifndef query_pin_command_h
 #define query_pin_command_h
 
-#include "command.h"
+#include "pin_command.h"
 #include "../board/board.h"
 
-class QueryPinCommand : public Command {
+class QueryPinCommand : public PinCommand {
 
-  int _pin;
-  
   public:  
-    QueryPinCommand(BerthaBuffer);
-    void executeInternal(BerthaBuffer*);
+    QueryPinCommand(CommandParser*);
+
+    void updateBoard();
+    void buildResponse();
 };
 
 #endif

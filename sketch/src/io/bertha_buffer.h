@@ -15,8 +15,10 @@ class BerthaBuffer {
     void empty();
     char* buffer() { return _buffer; };
     
+    void set(const char*);
+
     BerthaBuffer* append(char);
-    BerthaBuffer* append(char*);
+    BerthaBuffer* append(const char*);
     BerthaBuffer* append(int);
     
     char* nextToken();

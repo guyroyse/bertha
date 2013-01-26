@@ -4,3 +4,6 @@
 Gemfile.lock
 .idea
 .build
+.metadata
+.project
+.cproject

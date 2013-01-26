@@ -1,5 +1,9 @@
 #include "version.h"
 
-void VersionCommand::executeInternal(BerthaBuffer* response) {
-  response->append("OK version=1.0.0");
+void VersionCommand::updateBoard() {
+}
+
+void VersionCommand::buildResponse() {
+  this->setOkStatus();
+  this->appendNameAndValue("version", "1.0.0");
 }

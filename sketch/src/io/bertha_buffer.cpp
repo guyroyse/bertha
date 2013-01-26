@@ -8,13 +8,18 @@ void BerthaBuffer::empty() {
   strncpy(buffer(), "", size());
 }
 
+void BerthaBuffer::set(const char* text) {
+  this->empty();
+  this->append(text);
+}
+
 BerthaBuffer* BerthaBuffer::append(char ch) {
   if (length() < maxLength())
     strncat(buffer(), &ch, 1);
   return this;
 }
 
-BerthaBuffer* BerthaBuffer::append(char* text) {
+BerthaBuffer* BerthaBuffer::append(const char* text) {
   if (freeSpace() > strlen(text)) {
     strncat(buffer(), text, freeSpace());
   }

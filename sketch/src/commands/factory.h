@@ -4,13 +4,12 @@
 #include "command.h"
 
 #include "version.h"
+#include "reset.h"
 #include "query_pin.h"
-#include "set_pin_mode.h"
-#include "query_pin_mode.h"
-#include "digital_write.h"
-#include "query_digital_write.h"
-#include "digital_read.h"
+#include "set_pin.h"
 #include "error.h"
+
+#include "command_parser.h"
 
 class CommandFactory {
   public:

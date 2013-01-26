@@ -5,7 +5,8 @@
 
 class ErrorCommand : public Command {
   public:
-    void executeInternal(BerthaBuffer*);
+    void updateBoard();
+    void buildResponse();
 };
 
 #endif

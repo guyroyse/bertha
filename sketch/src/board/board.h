@@ -1,15 +1,18 @@
-#ifndef pins_h
-#define pins_h
+#ifndef board_h
+#define board_h
 
 #include "pin.h"
+
+#define PIN_COUNT 14
 
 class Board {
 
   static Board* _instance;
-  Pin* _pins[13];  
+  Pin* _pins[PIN_COUNT];
 
   public:
     Pin* getPin(int);
+    void reset();
 
     static Board* getInstance();
 
