@@ -1,7 +1,7 @@
 #ifndef pin_mode_h
 #define pin_mode_h
 
-#include "arduino.h"
+#include "Arduino.h"
 
 class PinMode {
 
