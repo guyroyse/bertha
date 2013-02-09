@@ -1,7 +1,7 @@
 #ifndef bertha_io_h
 #define bertha_io_h
 
-#include "arduino.h"
+#include "Arduino.h"
 #include "bertha_buffer.h"
 
 class BerthaIO {

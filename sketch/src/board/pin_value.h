@@ -1,7 +1,7 @@
 #ifndef pin_value_h
 #define pin_value_h
 
-#include "arduino.h"
+#include "Arduino.h"
 
 class PinValue {
 

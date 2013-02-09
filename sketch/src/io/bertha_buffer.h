@@ -1,7 +1,7 @@
 #ifndef buffer_h
 #define buffer_h
 
-#include "arduino.h"
+#include "Arduino.h"
 
 const int BUFFER_SIZE = 64;
 
