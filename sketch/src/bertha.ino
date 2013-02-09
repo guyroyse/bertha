@@ -1,4 +1,4 @@
-#include "arduino.h"
+#include "Arduino.h"
 
 #include "io/bertha_io.h"
 #include "io/bertha_buffer.h"
