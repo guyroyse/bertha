@@ -3,7 +3,7 @@
 
 #include "pin.h"
 
-#define PIN_COUNT 14
+#define PIN_COUNT (NUM_DIGITAL_PINS - NUM_ANALOG_INPUTS)
 
 class Board {
 

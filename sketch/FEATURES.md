@@ -13,6 +13,7 @@ This is really just a todo list.
 - error if not PWM pins
 - time running (millis, micros)
 - help system
-- board detection (support Mega and other Arduino boards other than Uno)
 - tones
 - serial I/O on other pins
+- interrogate board for capabilities
+- interrogate pins for capabilities
