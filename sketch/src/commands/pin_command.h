@@ -9,7 +9,7 @@ class PinCommand : public Command {
     PinCommand(CommandParser*);
 
   protected:
-    Pin* getPin();
+    DigitalPin* getPin();
 };
 
 #endif

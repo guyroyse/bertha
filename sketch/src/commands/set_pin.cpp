@@ -9,13 +9,13 @@ void SetPinCommand::updateBoard() {
   char* mode = parser->argument("mode");
   char* value = parser->argument("value");
 
-  Pin* pin = this->getPin();
+  DigitalPin* pin = this->getPin();
   if (mode) pin->setMode(PinMode(mode));
   if (value) pin->setValue(PinValue(value));
 }
 
 void SetPinCommand::buildResponse() {
-  Pin* pin = this->getPin();
+  DigitalPin* pin = this->getPin();
   this->setOkStatus();
   this->appendNameAndValue("pin", pin->getPin());
   this->appendNameAndValue("mode", pin->getMode().toString());

@@ -3,7 +3,7 @@
 PinCommand::PinCommand(CommandParser* parser) : Command(parser) {
 }
 
-Pin* PinCommand::getPin() {
+DigitalPin* PinCommand::getPin() {
   int pin = this->getParser()->argumentAsInt("pin");
-  return this->getBoard()->getPin(pin);
+  return this->getBoard()->getDigitalPin(pin);
 };

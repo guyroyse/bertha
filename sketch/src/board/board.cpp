@@ -5,14 +5,14 @@ Board* Board::_instance = 0;
 Board::Board() {
   int pin;
   for (pin = 0; pin < PIN_COUNT; pin++)
-    _pins[pin] = new Pin(pin);
+    _digitalPins[pin] = new DigitalPin(pin);
   for (pin = 0; pin < ANALOG_PIN_COUNT; pin++)
     _analogPins[pin] = new AnalogPin(pin);
 }
 
 Board::~Board() {
   for (int pin = 0; pin < PIN_COUNT; pin++)
-    delete _pins[pin];
+    delete _digitalPins[pin];
   for (int pin = 0; pin < ANALOG_PIN_COUNT; pin++)
     delete _analogPins[pin];
   delete _instance;
@@ -23,8 +23,8 @@ Board* Board::getInstance() {
   return _instance;
 }
 
-Pin* Board::getPin(int pin) {
-  return _pins[pin];
+DigitalPin* Board::getDigitalPin(int pin) {
+  return _digitalPins[pin];
 }
 
 AnalogPin* Board::getAnalogPin(int pin) {
@@ -33,6 +33,6 @@ AnalogPin* Board::getAnalogPin(int pin) {
 
 void Board::reset() {
   for (int pin = 0; pin < PIN_COUNT; pin++) {
-    getPin(pin)->reset();
+    this->getDigitalPin(pin)->reset();
   }
 }

@@ -7,7 +7,7 @@ void QueryPinCommand::updateBoard() {
 }
 
 void QueryPinCommand::buildResponse() {
-  Pin* pin = this->getPin();
+  DigitalPin* pin = this->getPin();
   this->setOkStatus();
   this->appendNameAndValue("pin", pin->getPin());
   this->appendNameAndValue("mode", pin->getMode().toString());
