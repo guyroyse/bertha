@@ -4,6 +4,7 @@
 #include "version.h"
 #include "reset.h"
 #include "query_pin.h"
+#include "query_analog_pin.h"
 #include "set_pin.h"
 #include "error.h"
 

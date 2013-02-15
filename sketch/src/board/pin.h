@@ -24,4 +24,15 @@ class Pin {
     void reset();
 };
 
+class AnalogPin {
+
+  int _pin;
+
+  public:
+    AnalogPin(int);
+
+    int getPin();
+    int getValue();
+};
+
 #endif

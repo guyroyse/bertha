@@ -32,3 +32,15 @@ void Pin::reset() {
   this->setMode(PinMode(INPUT));
   this->setValue(PinValue(LOW));
 }
+
+AnalogPin::AnalogPin(int pin) {
+  _pin = pin;
+}
+
+int AnalogPin::getPin() {
+  return _pin;
+}
+
+int AnalogPin::getValue() {
+  return analogRead(_pin);
+}
