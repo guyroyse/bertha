@@ -10,6 +10,7 @@ tests run against the hardware.  Also, the following pins should be connected vi
 - pins 12 & 13 should be connected to each other
 - pin A0 should be grounded
 - pin A1 should be set to 5V
+- pin A2 should be set to 3.3V
 
 The Arduino IDE must be installed.  Go to main [Arduino](http://arduino.cc) page to download and install it.
 
