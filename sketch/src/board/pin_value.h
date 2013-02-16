@@ -18,12 +18,9 @@ class PinValue {
     
     int get();
     
-    char* toString();
-
   private:
   
     int stringToValue(char*);
-    char* valueToString(int);
   
 };
 

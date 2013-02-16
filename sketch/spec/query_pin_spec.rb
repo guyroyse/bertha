@@ -43,8 +43,8 @@ describe 'queryPin' do
       @response.should include('mode=OUTPUT')
     end
     
-    it 'reports a value of LOW' do
-      @response.should include('value=LOW')
+    it 'reports a value of 0' do
+      @response.should include('value=0')
     end
     
     context 'when setting value to HIGH' do
@@ -67,7 +67,7 @@ describe 'queryPin' do
       end
       
       it 'reports a value of HIGH' do
-        @response.should include('value=HIGH')
+        @response.should include('value=1')
       end
       
     end
@@ -92,7 +92,7 @@ describe 'queryPin' do
       end
       
       it 'reports a value of LOW' do
-        @response.should include('value=LOW')
+        @response.should include('value=0')
       end
       
     end
@@ -119,7 +119,7 @@ describe 'queryPin' do
     end
     
     it 'reports a value of HIGH' do
-      @response.should include('value=HIGH')
+      @response.should include('value=1')
     end
     
   end
@@ -144,7 +144,7 @@ describe 'queryPin' do
     end
     
     it 'reports a value of LOW' do
-      @response.should include('value=LOW')
+      @response.should include('value=0')
     end
     
   end
@@ -171,7 +171,7 @@ describe 'queryPin' do
     context 'when accepting a HIGH input' do
       
       before :each do
-        write "setPin pin=12 mode=OUTPUT value=HIGH"
+        write "setPin pin=12 mode=OUTPUT value=1"
         @response = read_write("queryPin pin=13")
       end
       
@@ -188,7 +188,7 @@ describe 'queryPin' do
       end
       
       it 'reports a value of HIGH' do
-        @response.should include('value=HIGH')
+        @response.should include('value=1')
       end
       
     end
@@ -196,7 +196,7 @@ describe 'queryPin' do
     context 'when accepting a LOW input' do
       
       before :each do
-        write "setPin pin=12 mode=OUTPUT value=LOW"
+        write "setPin pin=12 mode=OUTPUT value=0"
         @response = read_write("queryPin pin=13")
       end
       
@@ -213,7 +213,7 @@ describe 'queryPin' do
       end
       
       it 'reports a value of LOW' do
-        @response.should include('value=LOW')
+        @response.should include('value=0')
       end
       
     end

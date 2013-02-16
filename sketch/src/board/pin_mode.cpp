@@ -30,7 +30,8 @@ char* PinMode::toString() {
 
 char* PinMode::modeToString(int mode) {
   if (mode == INPUT) return "INPUT";
-  return "OUTPUT";
+  if (mode == OUTPUT) return "OUTPUT";
+  return "PWM";
 }
 
 int PinMode::stringToMode(char* modeString) {

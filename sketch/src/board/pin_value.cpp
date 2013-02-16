@@ -24,16 +24,8 @@ int PinValue::get() {
   return _value;
 }
 
-char* PinValue::toString() {
-  return valueToString(get());
-}
-
-char* PinValue::valueToString(int value) {
-  if (value == HIGH) return "HIGH";
-  return "LOW";
-}
-
 int PinValue::stringToValue(char* valueString) {
+  if (!strcmp("LOW", valueString)) return LOW;
   if (!strcmp("HIGH", valueString)) return HIGH;
-  return LOW;
+  return atoi(valueString);
 }
