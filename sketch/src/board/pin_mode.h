@@ -6,7 +6,6 @@
 class PinMode {
 
   int _mode;
-  bool _pwm;
   
   public:
   

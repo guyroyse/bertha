@@ -10,15 +10,16 @@ class DigitalPin : public Pin {
 
   PinMode _mode;
   PinValue _value;
+  bool _pwm;
 
   public:
     DigitalPin(int);
 
-    PinMode getMode();
+    char* getMode();
     PinValue getValue();
 
     void setValue(PinValue);
-    void setMode(PinMode);
+    void setMode(char*);
 
     void reset();
 

@@ -10,6 +10,6 @@ void QueryPinCommand::buildResponse() {
   DigitalPin* pin = this->getPin();
   this->setOkStatus();
   this->appendNameAndValue("pin", pin->getPin());
-  this->appendNameAndValue("mode", pin->getMode().toString());
+  this->appendNameAndValue("mode", pin->getMode());
   this->appendNameAndValue("value", pin->getValue().get());
 }
