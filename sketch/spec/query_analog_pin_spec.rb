@@ -55,7 +55,7 @@ describe 'queryAnalogPin' do
     end
   
     it 'reports a value of around 682' do
-      @response.should match /value=68[0-4]/
+      @response.should match /value=68[0-9]/
     end
     
   end
